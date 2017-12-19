@@ -1,4 +1,4 @@
-package com.example.easynotes.filter;
+package com.example.application.filter;
 
 import org.springframework.stereotype.Component;
 
