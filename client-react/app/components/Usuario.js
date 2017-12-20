@@ -1,30 +1,24 @@
 var React = require('react');
 var createReactClass = require('create-react-class');
-var UsuarioService = require('../services/UsuarioService');
+
+var SearchUsuario = require('./SearchUsuario');
 var Usuario = createReactClass({
 
     getInitialState: function() {
         return {
-            usuario: null
+            usuarios: []
         };
     },
 
-    handleSubmit(e) {
-        e.preventDefault();
-
-        UsuarioService.getAllUsers().then(function(response) {
-            console.log(response);
-        });
+    updateUsuarios: function(usuarios) {
+        this.setState({usuarios: usuarios});
     },
 
-    render() {
+    render: function() {
         return(
-            <form onSubmit={this.handleSubmit}>
-                <div className="container">
-                    <h2>Clique no botão abaixo:</h2>
-                    <button className="btn btn-primary">Buscar</button>
-                </div>
-            </form>
+            <div className="container">
+                <SearchUsuario updateUsuarios={this.updateUsuarios} usuarios={this.state.usuarios} />
+            </div>
         );
     }
 });
