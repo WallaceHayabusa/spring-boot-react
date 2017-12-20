@@ -1,9 +1,9 @@
 var React = require('react');
 var createReactClass = require('create-react-class');
 var propTypes = require('prop-types');
+var TabelaUsuarios = require('./TabelaUsuarios');
 
 var UsuarioService = require('../services/UsuarioService');
-var TabelaUsuarios = require('../components/TabelaUsuarios');
 
 var SearchUsuario = createReactClass({
     handleSubmit: function(e) {
@@ -16,15 +16,6 @@ var SearchUsuario = createReactClass({
     },
 
     render: function() {
-        var usuarios = this.props.usuarios.map(function(usuario, key) {
-            return(
-                <tr key={key}>
-                    <td>{usuario.name}</td>
-                    <td>{usuario.email}</td>
-                </tr>
-            ); 
-        });
-        
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -35,19 +26,8 @@ var SearchUsuario = createReactClass({
                 </form>
                 <br/>
                 <br/>
-
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {usuarios}
-                    </tbody>
-                </table>
+                
+                <TabelaUsuarios usuarios={this.props.usuarios} />
             </div>
         );
     }

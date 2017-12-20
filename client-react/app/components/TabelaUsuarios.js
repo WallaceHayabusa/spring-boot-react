@@ -6,16 +6,15 @@ var TabelaUsuarios = createReactClass({
     render: function() {
         var usuarios = this.props.usuarios.map(function(usuario, key) {
             return(
-                <div>
-                    <div key={key}>
-                        {usuario.name} 
-                    </div>
-                </div>
+                <tr key={key}>
+                    <td>{usuario.name}</td>
+                    <td>{usuario.email}</td>
+                </tr>
             ); 
         });
-
+        
         return(
-            <div className="container">
+            <div>
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -25,10 +24,7 @@ var TabelaUsuarios = createReactClass({
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>John</td>
-                            <td>john@example.com</td>
-                        </tr>
+                        {usuarios}
                     </tbody>
                 </table>
             </div>

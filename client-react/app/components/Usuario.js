@@ -2,6 +2,8 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 
 var SearchUsuario = require('./SearchUsuario');
+var TabelaUsuarios = require('./TabelaUsuarios');
+
 var Usuario = createReactClass({
 
     getInitialState: function() {
